@@ -1,9 +1,17 @@
-<h2>Listas</h2>
-<div *ngFor="let empresa of empresas">
-
-    <app-detalle-empresa [empresa] = 'empresa'>
-         
-    </app-detalle-empresa>
-  
-  </div>
- 
+<h3>
+    Lista de observación
+</h3>
+<small>*Se refrescará automáticamente en {{tiempo_refresco}} segundos</small>
+<div *ngIf=quoteDataLoaded>
+    <div class="list-group">
+        <div *ngFor="let dato of datos_consulta">
+            <div class="list-group-item align-items-start">
+                <h5 class="mb-1">{{dato.symbol}}</h5>
+                <p class="mb-1">{{dato.price}} (USD)</p>
+                <div *ngIf="dato.hasIncreased; then greenBlock else redBlock"></div>
+                <ng-template #greenBlock><small class="text-success">+{{dato.change}} (+{{dato.changePercent}})</small></ng-template>
+                <ng-template #redBlock><small class="text-danger">{{dato.change}} ({{dato.changePercent}})</small></ng-template>
+            </div>
+        </div>
+    </div>
+</div>
