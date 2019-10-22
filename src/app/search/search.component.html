@@ -1,3 +1,5 @@
-<p>
-  search works!
-</p>
+<div class="input-group">
+  <input #searchBox [(ngModel)]="symbol" type="text" class="form-control" name="symbol" placeholder="Escribe aqui el nombre de la empresa que quieres buscar y luego pulsa intro (ej: MSFT/microsoft)"
+    (keyup.enter)="generateList(searchBox.value)"/>
+  <button type="button" class="btn btn-primary" (click)="sendSymbol()"><i class="fa fa-search">Buscar</i></button>
+</div>
