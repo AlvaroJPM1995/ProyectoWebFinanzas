@@ -16,6 +16,7 @@ export class  ListasComponent  implements OnInit{
   quoteDataLoaded = true;
   intervalo_tiempo = timer(1000, 1000);
   tiempo_refresco = 120;
+  tiempo_actual = 120;
 
   constructor(private empresaService: EmpresaService) {}
   
@@ -28,9 +29,8 @@ export class  ListasComponent  implements OnInit{
 
   ngOnInit(){
     this.intervalo_tiempo.subscribe(x => {
-      const tiempo_actual = this.tiempo_refresco;
-      this.tiempo_refresco = tiempo_actual - x % tiempo_actual;
-      if(x%tiempo_actual==0){
+      this.tiempo_refresco = this.tiempo_actual - x % this.tiempo_actual;
+      if(x%this.tiempo_actual==0){
         this.refrescarLista();}
       });
     }
