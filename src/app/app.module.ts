@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { SearchComponent } from './search/search.component';
-import { ServiceComponent } from './service/service.component';
 
 @NgModule({
    imports: [
@@ -16,9 +14,7 @@ import { ServiceComponent } from './service/service.component';
    ],
    declarations: [
       AppComponent,
-      HelloComponent,
-      SearchComponent,
-      ServiceComponent
+      SearchComponent
    ],
    bootstrap: [
       AppComponent
