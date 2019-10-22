@@ -28,7 +28,7 @@ export class  ListasComponent  implements OnInit{
 
   ngOnInit(){
     this.intervalo_tiempo.subscribe(x => {
-      let tiempo_actual = this.tiempo_refresco;
+      const tiempo_actual = this.tiempo_refresco;
       this.tiempo_refresco = tiempo_actual - x % tiempo_actual;
       if(x%tiempo_actual==0){
         this.refrescarLista();}
