@@ -9,6 +9,7 @@ import { EMPRESAS } from '../listas';
   styleUrls: ['./listas.component.css']
 })
 export class  ListasComponent  implements OnInit{
+  
   empresas = EMPRESAS;
   datos_json: any;
   simbolos_empresa: String[] = ['AAPL', 'AMZN', 'GOOG', 'EBAY'];
