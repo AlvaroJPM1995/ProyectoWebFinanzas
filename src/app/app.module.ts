@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ListasComponent } from './listas/listas.component';
+import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.component';
 
 
 @NgModule({
@@ -13,12 +14,13 @@ import { ListasComponent } from './listas/listas.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '../app/listas', component: ListasComponent },
+      { path: '', component: ListasComponent },
     ])
   ],
   declarations: [
     AppComponent,
-    ListasComponent
+    ListasComponent,
+    DetalleEmpresaComponent
   ],
   bootstrap: [ AppComponent ]
 })

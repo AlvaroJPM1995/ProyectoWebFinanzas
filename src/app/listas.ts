@@ -1,4 +1,4 @@
-export const lista = [
+export const EMPRESAS = [
     {
       name: 'Microsoft',
       symbol: 'MSCFT'
@@ -6,5 +6,5 @@ export const lista = [
     {
       name: 'APPLE',
       symbol: 'AAPL'
-    }
+    },
   ];

@@ -1,10 +1,8 @@
-<h2>Products</h2>
+<h2>Listas</h2>
+<div *ngFor="let empresa of empresas">
 
-<div *ngFor="let listas of lista">
-
-  <h3>
-    
-      {{ listas.name }}
-  </h3>
-
-</div>
+    <app-detalle-empresa [empresa] = 'empresa'>
+         
+    </app-detalle-empresa>
+  
+  </div>
