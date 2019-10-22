@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { ListasComponent } from './listas/listas.component';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '../app/listas', component: ListasComponent },
+    ])
+  ],
+  declarations: [
+    AppComponent,
+    ListasComponent
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
