@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
 import { EmpresaService } from '../service/empresa_servico.service';
-import { GlobalQuote } from '../model';
+import { GlobalQuote } from '../model/global-quote';
 import { EMPRESAS } from '../listas';
 @Component({
   selector: 'app-listas',
@@ -9,7 +9,7 @@ import { EMPRESAS } from '../listas';
   styleUrls: ['./listas.component.css']
 })
 export class  ListasComponent  implements OnInit{
-
+empresas = EMPRESAS;
   datos_json: any;
   simbolos_empresa: String[] = ['AAPL', 'AMZN', 'GOOG', 'EBAY'];
   datos_consulta: GlobalQuote[] = [];
@@ -36,7 +36,7 @@ export class  ListasComponent  implements OnInit{
     }
 
     busquedaDatos(symbol){
-      this.empresaService.getEmpresa(symbol).subscribe(data => {
+      this.empresaService.getempresa(symbol).subscribe(data => {
       const symbolName: string = data['Global Quote']['01. symbol'];
       const currentPrice: string = data['Global Quote']['05. price'];
       const change: string = data['Global Quote']['09. change'];
