@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { Name } from "../model/name";
+import { Empresa } from "../model/empresa";
 import { SearchService } from '../service/search.service';
 
 @Component({
@@ -14,9 +14,8 @@ export class SearchComponent implements OnInit {
 
   isHidden = true;
   symbol: string = "";
-  jsonData: any;
 
-  nameData: Name[] = [];
+  nameData: Empresa[];
 
   constructor(private searchService: SearchService) { }
 
@@ -25,15 +24,7 @@ export class SearchComponent implements OnInit {
 
   generateList(keywords: string) {
     this.searchService.getSuggestion(keywords).subscribe(data => {
-      this.nameData = [];
-      this.jsonData = data["bestMatches"];
-      for(const item in this.jsonData){
-        const symbol =  this.jsonData[item]["1. symbol"];
-        const name = this.jsonData[item]["2. name"];
-        let symbolName:Name = new Name(symbol, name);
-        console.log(symbolName);
-        this.nameData.push(symbolName);
-      }
+      this.nameData = data;
       this.isHidden = (this.isHidden == true && this.nameData.length > 0) ? false : true;
     });
   }

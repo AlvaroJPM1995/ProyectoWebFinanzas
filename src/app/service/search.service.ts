@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import {map, concatAll, mergeAll, combineAll } from 'rxjs/operators';
+import { Empresa } from '../model/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,31 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  getSuggestion(keywords: string): Observable<any> {
+  getSuggestion(keywords: string): Observable<Empresa[]> {
     const url = `${this.SEARCH_API}&keywords=${keywords}&apikey=${this.API_KEY}`;
-    console.log(url);
-    return this.http.get(url);
+    return this.http.get(url)
+      .pipe(
+        map(data =>  this.parse(data['bestMatches']))
+    );
+  }
+
+  parse(data): Empresa[] {
+    let empresas:Empresa[] = [];
+    data.forEach(element => {
+      let empresa:Empresa = {
+        symbol: element['1. symbol'],
+        name: element['2. name'],
+        type: element['3. type'],
+        region: element['4. region'],
+        marketOpen: element['5. marketOpen'],
+        marketClose: element['6. marketClose'],
+        timezona: element['7. timezona'],
+        currency: element['8. currency'],
+        matchScore: element['9. matchScore']
+
+      }
+      empresas.push(empresa);
+    });
+    return empresas;
   }
 }
