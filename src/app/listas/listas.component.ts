@@ -3,6 +3,7 @@ import { timer } from 'rxjs';
 import { EmpresaService } from '../service/empresa_servico.service';
 import { GlobalQuote } from '../model/global-quote';
 import { EMPRESAS } from '../listas';
+
 @Component({
   selector: 'app-listas',
   templateUrl: './listas.component.html',
