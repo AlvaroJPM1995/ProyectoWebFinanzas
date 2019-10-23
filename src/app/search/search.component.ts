@@ -41,11 +41,14 @@ export class SearchComponent implements OnInit {
   populateSearch(value: string){
     this.symbol = value;
     this.isHidden = (this.isHidden == true) ? false : true;
-    this.sendSymbol();
+    this.share();
   }
 
-  sendSymbol() {
+  /*sendSymbol() {
     if(this.symbol != "")
       this.symbolEvent.emit(this.symbol);
+  }*/
+  share() {
+    window.alert('Esto funciona correctamente');
   }
 }
