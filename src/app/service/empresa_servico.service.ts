@@ -13,7 +13,7 @@ export class EmpresaService {
     private URL_PETICION_DATOS_GLOBALES = this.BASE + '?function=GLOBAL_QUOTE';
 
     constructor(private http: HttpClient){}
-    getempresa(simbolo_empresa): Observable<any> {
+    getempresa(simbolo_empresa: any): Observable<any> {
         const url = `${this.URL_PETICION_DATOS_GLOBALES}&symbol=${simbolo_empresa}&apikey=${this.CLAVE_LIBRERIA}`;
         console.log(url);
         return this.http.get(url).pipe(tap(data=>console.log(data)));
