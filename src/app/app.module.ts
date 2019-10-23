@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ListasComponent } from './listas/listas.component';
 import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.component';
+import { CharttestComponent } from './charttest/charttest.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.compo
   declarations: [
     AppComponent,
     ListasComponent,
-    DetalleEmpresaComponent
+    DetalleEmpresaComponent,
+    CharttestComponent
   ],
   bootstrap: [ AppComponent ]
 })
