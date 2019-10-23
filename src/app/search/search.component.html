@@ -1,5 +1,15 @@
-<div class="input-group">
-  <input #searchBox [(ngModel)]="symbol" type="text" class="form-control" name="symbol" placeholder="Escribe aqui el nombre de la empresa que quieres buscar y luego pulsa intro (ej: MSFT/microsoft)"
-    (keyup.enter)="generateList(searchBox.value)"/>
-  <button type="button" class="btn btn-primary" (click)="sendSymbol()"><i class="fa fa-search">Buscar</i></button>
-</div>
+<form>
+  <div class="input-group">
+    <input #searchBox [(ngModel)]="symbol" type="text" class="form-control" name="symbol" placeholder="Escribe aqui la empresa que quieres buscar y dale a intro / buscar (ej: MSFT/microsoft)"
+      (keyup.enter)="generateList(searchBox.value)"/>
+    <button type="button" class="btn btn-primary" (click)="sendSymbol()"><i class="fa fa-search">Buscar</i></button>
+  </div>
+  <ul class="list-group list-group-flush pt-0 pb-0" [hidden]="isHidden">
+    <div *ngFor="let name of nameData">
+      <div class="list-group-item d-flex align-items-center" (click)="populateSearch(name.symbol)">
+        <h5>{{name.symbol}}</h5>
+        <h6 class="ml-auto pl-5">{{name.name}}</h6>
+      </div>
+    </div>
+  </ul>
+</form>
