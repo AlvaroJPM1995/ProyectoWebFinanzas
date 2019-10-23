@@ -2,9 +2,9 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { Datos_graficaService } from '../service/datos_grafica.service';
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  selector: 'app-grafica',
+  templateUrl: './grafica.component.html',
+  styleUrls: ['./grafica.component.css']
 })
 export class ChartComponent implements OnInit, OnChanges {
   @Input() symbol: string;
