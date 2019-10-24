@@ -10,7 +10,6 @@ import { EMPRESAS } from '../listas';
 })
 export class  ListasComponent  implements OnInit{
   
-  empresas = EMPRESAS;
   datos_json: any;
   simbolos_empresa: String[] = ['AAPL', 'AMZN', 'GOOG', 'EBAY'];
   datos_consulta: GlobalQuote[] = [];

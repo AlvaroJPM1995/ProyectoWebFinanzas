@@ -1,7 +1,5 @@
-<p>
-    charttest works!
-</p>
-
-<ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" (select)="onSelect($event)">
-</ngx-charts-line-chart>
+<div *ngIf=chartDataLoaded>
+    <ngx-charts-line-chart [view]=[600,300] [results]="chartData" [scheme]="colorScheme" [legend]=true [legendTitle]="'Empresa'" [xAxis]=true [yAxis]=true [showGridLines]=false [roundDomains]=true [showXAxisLabel]=true [showYAxisLabel]=true [xAxisLabel]="'Tiempo (yyyy-mm-dd HH:MM:SS)'"
+        [yAxisLabel]="'Precio de cierre'" [xAxisTicks]=xAxisTicks [autoScale]=true [gradient]=true>
+    </ngx-charts-line-chart>
+</div>
