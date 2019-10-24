@@ -1,11 +1,11 @@
-<app-charttest [simbolo]="AMZN">
-</app-charttest>
-<app-charttest [simbolo]="GOOG">
-</app-charttest>
-<app-charttest [simbolo]="AAPL">
-</app-charttest>
-<app-charttest [simbolo]="MSCF">
-</app-charttest>
 <div class="container">
-    <!-- <router-outlet></router-outlet>-->
+    <!-- <router-outlet></router-outlet> -->
 </div>
+<ul *ngFor='let simbolo of simbolos'>
+    <li (click)="onSelected(simbolo)">
+        {{simbolo}}
+    </li>
+
+</ul>
+<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo">
+</app-charttest>

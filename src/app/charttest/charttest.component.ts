@@ -28,18 +28,19 @@ export class CharttestComponent implements OnInit, OnChanges {
 
     for (let propName in changes) {
       let change = changes[propName];
-      if (propName === 'symbol') {
-        if(change.currentValue != undefined) // call iff updated value is undefined
-          this.busquedaDatos(change.currentValue)
+      if (propName === 'simbolo') {
+        if(change.currentValue != undefined) 
+          this.fetchData(change.currentValue)
       }
     }
   }
 
   ngOnInit() {
-    this.busquedaDatos("FB");
+    // Esta búqueda se está duplicando
+    //this.fetchData(this.simbolo);
   }
 
-  busquedaDatos(symbol) {
+  fetchData(symbol) {
 
     // call the service to fetch intraday data
     this.timeseries.getDatosGrafica(symbol).subscribe(data => {
