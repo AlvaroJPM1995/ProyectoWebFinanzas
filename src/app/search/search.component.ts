@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
 
   isHidden = true;
   symbol: string = "";
+  selectedEmpresa:Empresa;
 
   nameData: Empresa[];
 
@@ -29,6 +30,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  
+
   populateSearch(value: string){
     this.symbol = value;
     this.isHidden = (this.isHidden == true) ? false : true;
@@ -41,5 +44,8 @@ export class SearchComponent implements OnInit {
   }*/
   share() {
     window.alert('Esto funciona correctamente');
+  }
+  onSelected(empresa){
+  this.selectedEmpresa = empresa;
   }
 }

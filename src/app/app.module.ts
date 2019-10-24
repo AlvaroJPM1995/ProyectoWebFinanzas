@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './service/search.service';
+import { DetalleEmpresaComponent } from './detalle-empresa/detalle-empresa.component';
 
 @NgModule({
    imports: [
@@ -15,7 +16,8 @@ import { SearchService } from './service/search.service';
    ],
    declarations: [
       AppComponent,
-      SearchComponent
+      SearchComponent,
+      DetalleEmpresaComponent
    ],
    bootstrap: [
       AppComponent

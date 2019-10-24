@@ -7,9 +7,13 @@
 </form>
 <ul class="list-group list-group-flush pt-0 pb-0" [hidden]="isHidden">
   <div *ngFor="let empresa of nameData">
-    <div class="list-group-item d-flex align-items-center" (click)="populateSearch(empresa.symbol)">
-      <h5>{{empresa.name}} <h6>{{empresa.symbol}}</h6></h5>
-      
+    <div class="list-group-item d-flex align-items-center">
+      <li (click) = "onSelected(empresa)">
+          <h5>{{empresa.name}} <h6>{{empresa.symbol}}</h6></h5>
+      </li>
     </div>
   </div>
 </ul>
+<div *ngIf="selectedEmpresa">
+<app-detalle-empresa [empresa]="selectedEmpresa"></app-detalle-empresa>
+</div>
