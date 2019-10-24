@@ -1,11 +1,12 @@
 <div class="container">
     <!-- <router-outlet></router-outlet> -->
-</div>
-<ul *ngFor='let simbolo of simbolos'>
-    <li (click)="onSelected(simbolo)">
-        {{simbolo}}
-    </li>
 
-</ul>
-<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo">
+<button *ngFor='let simbolo of simbolos' (click)="onSelected(simbolo)">
+        {{simbolo}}
+
+</button>
+<div id="info">
+<app-charttest id="tabla" *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo" class="tabla">
 </app-charttest>
+</div>
+</div>

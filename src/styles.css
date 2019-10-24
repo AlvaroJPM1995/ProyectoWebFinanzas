@@ -1,1 +1,15 @@
 /* Add application styles & imports to this file! */
+
+.container{
+    text-align: center !important;
+}
+
+#info{
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+#tabla{
+    margin-left: 30%;
+    margin-right: auto;
+}
