@@ -15,7 +15,7 @@ export class Datos_graficaService {
 constructor(private http: HttpClient) { }
 
 getDatosGrafica(symbol): Observable<any> {
-  const url = `${this.URL_PETICION_DATOS_GRAFICA}&symbol=${symbol}&interval=1min&apikey=${this.URL_PETICION_DATOS_GRAFICA}`
+  const url = `${this.URL_PETICION_DATOS_GRAFICA}&symbol=${symbol}&interval=5min&apikey=${this.CLAVE_LIBRERIA}`
   console.log(url);
   return this.http.get(url).pipe(tap(data=>console.log(data)));
 }
