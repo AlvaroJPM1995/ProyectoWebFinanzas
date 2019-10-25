@@ -1,4 +1,21 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<header id="cabecera">Bolsa Today!</header>
+<div class="container">
+    <!-- <router-outlet></router-outlet> -->
+
+<button id="botones" *ngFor='let simbolo of simbolos' (click)="onSelected(simbolo)">
+        {{simbolo}}
+</button>
+<div id="tabla">
+<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo">
+</app-charttest>
+</div>
+</div>
+
+    
+<footer id="pie">
+    <br>
+        <a id="botones" href="https://www.google.es/">
+            <button id="botones">Ir a Google</button>
+        </a>
+        <p>Proyecto Modulo Angular.io</p>
+</footer>

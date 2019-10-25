@@ -1,1 +1,42 @@
 /* Add application styles & imports to this file! */
+
+.container{
+    text-align: center;
+}
+#botones{
+        border-radius: 4px;
+        background-color: rgb(79, 99, 185);
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 12px;
+        width: 10%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px; 
+}
+
+#tabla{
+    text-align: left;
+    margin-left: 30%;
+}
+#cabecera{
+    padding: 0px;
+    margin:0;
+    text-align: center;
+    background-color: rgb(79, 99, 185);
+    color: white;
+    font-size: 30px;
+}
+#pie{
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(79, 99, 185);
+  color: white;
+  text-align: center;
+}
+

@@ -1,0 +1,8 @@
+<h1 id="titulo">Estas viendo los datos de: {{simbolo}}</h1>
+
+
+<div *ngIf=chartDataLoaded>
+    <ngx-charts-line-chart [view]=[600,300] [results]="chartData" [scheme]="colorScheme" [legend]=true [legendTitle]="'Empresa'" [xAxis]=true [yAxis]=true [showGridLines]=false [roundDomains]=true [showXAxisLabel]=true [showYAxisLabel]=true [xAxisLabel]="'*Los datos se actualizan hasta las 4 de la tarde.'"
+        [yAxisLabel]="'Precio de cierre'" [xAxisTicks]=xAxisTicks [autoScale]=true [gradient]=true>
+    </ngx-charts-line-chart>
+</div>
