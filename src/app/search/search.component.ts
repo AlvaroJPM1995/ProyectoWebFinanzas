@@ -47,5 +47,6 @@ export class SearchComponent implements OnInit {
   }
   onSelected(empresa){
   this.selectedEmpresa = empresa;
+  this.isHidden= !this.isHidden;
   }
 }

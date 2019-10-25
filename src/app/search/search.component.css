@@ -1,0 +1,41 @@
+input[type=text], select {
+    width: 60%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.btn-primary {
+    border-radius: 4px;
+    background-color: rgb(79, 99, 185);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px;
+    width: 15%;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+.bestmatches {
+    border:1px solid gray; 
+    background-color: white;
+    color: black;
+    border-radius:4px; 
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    width: 70%;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+.selected {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  

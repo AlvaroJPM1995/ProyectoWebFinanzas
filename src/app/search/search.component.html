@@ -1,19 +1,21 @@
+
+<div style="text-align: center;">
+<h1>Bolsa Today</h1>
 <form>
   <div class="input-group">
     <input #searchBox [(ngModel)]="symbol" type="text" class="form-control" name="symbol" placeholder="Escribe aqui la empresa que quieres buscar y dale a intro / buscar (ej: MSFT/microsoft)"
       (keyup.enter)="generateList(searchBox.value)"/>
-    <button type="button" class="btn btn-primary" (click)="generateList(searchBox.value)"><i class="fa fa-search">Buscar</i></button>
+    <button type="button" class="btn-primary" (click)="generateList(searchBox.value)"><i class="fa fa-search">Buscar</i></button>
   </div>
 </form>
-<ul class="list-group list-group-flush pt-0 pb-0" [hidden]="isHidden">
+<ul class="list-group" [hidden]="isHidden" >
   <div *ngFor="let empresa of nameData">
-    <div class="list-group-item d-flex align-items-center">
-      <li (click) = "onSelected(empresa)">
-          <h5>{{empresa.name}} <h6>{{empresa.symbol}}</h6></h5>
-      </li>
+    <div class="list-group-item" >
+      <button type="button" class="bestmatches" (click) = "onSelected(empresa)" [hidden]="isHidden">{{empresa.name}} {{empresa.symbol}}</button>
     </div>
   </div>
 </ul>
-<div *ngIf="selectedEmpresa">
+<div class=selected *ngIf="selectedEmpresa" style="text-align: center;">
 <app-detalle-empresa [empresa]="selectedEmpresa"></app-detalle-empresa>
+</div>
 </div>
