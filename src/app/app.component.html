@@ -1,12 +1,15 @@
+<header id="cabecera">Bolsa Today!</header>
 <div class="container">
     <!-- <router-outlet></router-outlet> -->
 
-<button *ngFor='let simbolo of simbolos' (click)="onSelected(simbolo)">
+<button id="botones" *ngFor='let simbolo of simbolos' (click)="onSelected(simbolo)">
         {{simbolo}}
-
 </button>
-<div id="info">
-<app-charttest id="tabla" *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo" class="tabla">
+<div id="tabla">
+<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo">
 </app-charttest>
 </div>
 </div>
+<footer id="pie">
+        <p>Proyecto Modulo Angular.io</p>
+</footer>
