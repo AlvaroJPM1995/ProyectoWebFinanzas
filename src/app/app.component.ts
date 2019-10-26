@@ -10,7 +10,7 @@ export class AppComponent  {
   simbolos = ['AAPL', 'AMZN', 'GOOG', 'FB'];
   selectedSimbolo;
 
-  onSelected(simbolo){
+   onSelected(simbolo){
     this.selectedSimbolo = simbolo;
   }
 }
