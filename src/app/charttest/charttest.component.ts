@@ -1,19 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Empresa } from "../model/empresa";
-import { SearchService } from '../service/search.service';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Datos_graficaService } from '../service/datos_grafica.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-charttest',
+  templateUrl: './charttest.component.html',
+  styleUrls: ['./charttest.component.css']
 })
-export class SearchComponent implements OnInit {
+export class CharttestComponent implements OnInit, OnChanges {
 
-  @Output() symbolEvent = new EventEmitter<string>();
+  @Input() simbolo: string;
 
-  isHidden = true;
-  symbol: string = "";
-  selectedEmpresa:Empresa;
   jsonData: any;
   chartData: any[] = [{
     name: '',
@@ -26,38 +22,22 @@ export class SearchComponent implements OnInit {
     domain: ['#E20C13', '#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor(private timeseries: SearchService, private searchService: SearchService) { }
+  constructor(private timeseries: Datos_graficaService) { }
 
-  nameData: Empresa[];
+  ngOnChanges(changes: SimpleChanges) {
+
+    for (let propName in changes) {
+      let change = changes[propName];
+      if (propName === 'simbolo') {
+        if(change.currentValue != undefined) 
+          this.fetchData(change.currentValue)
+      }
+    }
+  }
 
   ngOnInit() {
-  }
-
-  generateList(keywords: string) {
-    this.searchService.getSuggestion(keywords).subscribe(data => {
-      this.nameData = data;
-      this.isHidden = (this.isHidden == true && this.nameData.length > 0) ? false : true;
-    });
-  }
-
-  
-
-  populateSearch(value: string){
-    this.symbol = value;
-    this.isHidden = (this.isHidden == true) ? false : true;
-    this.share();
-  }
-
-  /*sendSymbol() {
-    if(this.symbol != "")
-      this.symbolEvent.emit(this.symbol);
-  }*/
-  share() {
-    window.alert('Esto funciona correctamente');
-  }
-  onSelected(empresa){
-  this.selectedEmpresa = empresa;
-  this.isHidden= !this.isHidden;
+    // Esta búqueda se está duplicando
+    //this.fetchData(this.simbolo);
   }
 
   fetchData(symbol) {
@@ -96,4 +76,5 @@ export class SearchComponent implements OnInit {
       this.chartDataLoaded = true;
     });
   }
+
 }

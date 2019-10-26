@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular';
+  simbolos = ['AAPL', 'AMZN', 'GOOG', 'FB'];
+  selectedSimbolo;
+
+   onSelected(simbolo){
+    this.selectedSimbolo = simbolo;
+  }
 }

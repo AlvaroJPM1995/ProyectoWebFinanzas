@@ -61,4 +61,9 @@ export class SearchService {
   parseTimeSeries(data):TimeSeries[]{
     return data;
   }
+  getDatosGrafica(symbol): Observable<any> {
+    const url = `${this.BASE_API}&symbol=${symbol}&interval=5min&apikey=${this.API_KEY}`
+    console.log(url);
+    return this.http.get(url);
+  }
 }

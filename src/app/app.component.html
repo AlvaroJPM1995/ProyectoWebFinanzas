@@ -1,3 +1,21 @@
-<html>
+
+<header id="cabecera">Bolsa Today!</header>
+<div class="container">
+    
+
+<button id="botones" *ngFor='let simbolo of simbolos' (click)="onSelected(simbolo)">
+        {{simbolo}}
+</button>
 <app-search></app-search>
-</html>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<div id="tabla">
+<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo">
+</app-charttest>
+<app-charttest *ngIf="selectedSimbolo" [simbolo]="selectedSimbolo"></app-charttest>
+</div>
+</div>
+
+    
+
